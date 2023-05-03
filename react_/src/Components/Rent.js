@@ -10,8 +10,8 @@ function Rent() {
     image: 'https://www.tesla.com/sites/default/files/modelsx-new/social/model-s-hero-social.jpg'
   };
 
-  axios.get('http://localhost:8000/my_view/')
-  .then(response => console.log(response))
+  axios.get('http://localhost:8000/django_app/Client/')
+  .then(response => console.log(response.data))
   .catch(error => console.error(error));
   return (
     <div className="">
