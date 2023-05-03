@@ -15,9 +15,12 @@ const CarCard = ({ image, title, details }) => {
                     <div className="font-bold text-xl mb-2">{title}</div>
                     <p className="text-gray-700 text-base">{details}</p>
                 </div>
-                <div className="px-6 pt-4 pb-2">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <div className="px-6 pt-4 pb-2 flex justify-between">
+                    <button className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-2 px-4 rounded">
                         Rent Now
+                    </button>
+                    <button className="underline ">
+                        view details
                     </button>
                 </div>
             </div>

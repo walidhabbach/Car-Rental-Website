@@ -1,7 +1,7 @@
 import React from 'react'
 import  Bg from '../images/about.png'
 import { Link } from 'react-router-dom'
-import HomeCards from './HomeCards'
+import HomeCards from './Cards/HomeCards'
 import postion from '../images/position.gif'
 
 export default function Home() {

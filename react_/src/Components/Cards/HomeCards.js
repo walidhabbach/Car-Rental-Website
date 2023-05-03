@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../data/dataservices'
+import data from '../../data/dataservices'
 export default function HomeCards() {
   return (
     <div className='h-screen bg-gradient-to-b w-full from-gray-800 to-black'>
