@@ -1,5 +1,7 @@
 import React from 'react'
 import CarCard from './Cards/CarCard';
+import { useState,useEffect } from 'react';
+import axios from 'axios'
 
 function Rent() {
   const car = {
@@ -7,6 +9,10 @@ function Rent() {
     model: 'Model S',
     image: 'https://www.tesla.com/sites/default/files/modelsx-new/social/model-s-hero-social.jpg'
   };
+
+  axios.get('http://localhost:8000/my_view/')
+  .then(response => console.log(response))
+  .catch(error => console.error(error));
   return (
     <div className="">
        <div className="w-full md:w-2/3 py-4 px-6 mx-auto">
@@ -18,6 +24,9 @@ function Rent() {
             <CarCard image={car.image} title={car.make} details={car.model} />
           </div>
         </div>
+        <table>
+       
+        </table>
     </div>
   )
 }
