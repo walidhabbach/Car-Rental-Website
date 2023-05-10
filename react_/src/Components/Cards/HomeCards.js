@@ -2,7 +2,7 @@ import React from 'react'
 import data from '../../data/dataservices'
 export default function HomeCards() {
   return (
-    <div className='h-screen bg-gradient-to-b w-full from-gray-800 to-black'>
+    <div className=' bg-gradient-to-b w-full from-gray-800 to-black'>
          <div className='text-center'>
               <h1 className='font-bold text-4xl inline border-b-2 border-gray-500 text-white capitalize'>Our services</h1>
          </div>

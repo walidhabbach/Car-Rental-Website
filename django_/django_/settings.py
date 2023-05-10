@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_app.apps.DjangoAppConfig',
     'corsheaders',
     'rest_framework',
+    'django_',
 ]
 
 MIDDLEWARE = [

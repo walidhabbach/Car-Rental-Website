@@ -5,17 +5,30 @@ import Rent from './Components/Rent';
 import Navbar from './Components/Navbar'
 import Profile from './Components/Profile';
 import Car from './Components/Pages/Car';
+import Details from './Components/Pages/Details';
+import Myreservations from './Components/Myreservations';
+import { useState } from 'react';
+import AuthContext from './Components/AuthContext';
+import Signup from './Components/Pages/SignUp';
+import './App.css'
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className='App'>
-      <Navbar />
-      <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/rent" element={<Rent />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/car" element={<Car />} />
-      </Routes>
-      <Footer />
+       <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <Navbar />
+           <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/car" element={<Car />} /> 
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/myreservations/" element={<Myreservations />} />
+            <Route path="/signUp" element={<Signup />} />
+          </Routes>
+       </AuthContext.Provider>
+     
+      {/* <Footer /> */}
     </div>
   );
 }

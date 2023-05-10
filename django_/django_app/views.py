@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Carburant, Client, Marque, Reservation, SuperUtilisateur, Utilisateur, Voiture
-from .serializers import CarburantSerializer, ClientSerializer, MarqueSerializer, ReservationSerializer, SuperUtilisateurSerializer, UtilisateurSerializer, VoitureSerializer
+from .models import Carburant, Client, Marque, Reservation, SuperUtilisateur, Utilisateur, Voiture,Transmission
+from .serializers import CarburantSerializer, ClientSerializer, MarqueSerializer, ReservationSerializer, SuperUtilisateurSerializer, UtilisateurSerializer, VoitureSerializer,TransmissionSerializer
 from rest_framework import viewsets
+from rest_framework.views import APIView
 # Create your views here.
 
 
@@ -38,3 +39,7 @@ class UtilisateurView(viewsets.ModelViewSet):
 class VoitureView(viewsets.ModelViewSet):
     serializer_class = VoitureSerializer
     queryset = Voiture.objects.all()
+
+class TransmissionView(viewsets.ModelViewSet):
+    serializer_class = TransmissionSerializer
+    queryset = Transmission.objects.all()
