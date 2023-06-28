@@ -64,7 +64,7 @@ export const ReservationCard = ({price,status,message,date_depart,date_arrive,id
                     <p className="text-gray-700 text-base py-2"><span className='font-bold'>From : </span>  {date_depart} <span className='font-bold'>To : </span>  {date_arrive}</p>
                     <p className="text-gray-700 text-base py-2"><span className='font-bold'>Your message: </span>  {message}</p>
                     <p className="text-gray-700 text-base py-2"><span className='font-bold'>Price of reservation : </span>  <span className='text-green-700'>{price} MAD</span> </p>
-                    <p className={`${status ? 'text-green-500 py-2' : 'text-red-500 py-2'}`}><span className='text-black font-bold'>Status :</span> {`${status ? 'Your reservation is confirmed come over to pick up your fucking car.' : 'Not confirmed yet by the agency.'} `}</p>
+                    <p className={`${status ? 'text-green-500 py-2' : 'text-red-500 py-2'}`}><span className='text-black font-bold'>Status :</span> {`${status ? 'Your reservation is confirmed come over to pick up your car.' : 'Not confirmed yet by the agency.'} `}</p>
                     <button className='py-2 px-7 rounded-sm mt-3 text-red-500 border border-red-500 hover:bg-red-500 hover:text-white' onClick={() => handleSubmit()}>Cancel</button>
                 </div> 
                 <div className="h-52 w-52 relative">

@@ -24,9 +24,9 @@ export default function TableInfo({data,carburant_type,gear_box}) {
      { icon: faGasPump, title: 'Fuel type',value: carburant_type,color: 'text-blue-500'},
   ]
   return (
-        <div className='w-full px-12'>
-             <h3 className='font-bold text-4xl mb-5'>Principal Specs</h3>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='lg:w-full lg:px-12'>
+             <h3 className='font-bold text-4xl mb-5 mt-5'>Principal Specs</h3>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  '>
                         {
                             specs_.map((spec,index)=>{
                                 return(

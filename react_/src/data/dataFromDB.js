@@ -6,11 +6,13 @@ export function Cars() {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:8000/django_app/Voiture/')
-            .then(response => setData(response.data))
+            .then(response => {
+                console.log(response.data)
+                setData(response.data)
+            })
             .catch(error => console.error(error));
     }, [])
-
-    return data;
+    return data
 }
 export function Brands() {
     const [data, setData] = useState([]);

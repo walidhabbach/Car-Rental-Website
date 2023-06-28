@@ -59,9 +59,9 @@ export default function Signup() {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
     if (!regex.test(event.target.value)) {
-      setErrorPassword('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number');
+      setErrorPassword('Password must contain at least 5 characters, including at least one uppercase letter, one lowercase letter, and one number');
     } else {
       setErrorPassword(null);
     }
@@ -89,7 +89,7 @@ export default function Signup() {
   };
 
   const handlePhotoChange = (event) => {
-    setPhoto(event.target.value);
+      setPhoto("file.toString()")
   };
 
   const handleDrivingLicenseChange = (event) => {
@@ -106,7 +106,7 @@ export default function Signup() {
         iduser: null,
         adresse: address,
         cin: cin,
-        photo: "b'cl ent1.jpg'",
+        photo: photo,
         liste_noire: 0,
         permis: drivingLicense,
         passport: passport,
@@ -123,7 +123,7 @@ export default function Signup() {
 
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:max-w-md md:max-w-3xl mx-auto p-4 w-full mb-5">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:max-w-md md:max-w-3xl mx-auto p-4 w-full mb-5" enctype="multipart/form-data">
       <div className="flex flex-col md:flex-row justify-between">
         <div className="mb-4 md:w-1/2 md:pr-2">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="nom">

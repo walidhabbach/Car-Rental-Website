@@ -5,7 +5,7 @@ import { RangeInput, BrandSelect, FuelSelect, SearchBox } from '../Cards/SearchC
 import { Cars, Brands, FuelTypes, GearBoxs } from '../../data/dataFromDB';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-
+import { useCookies } from 'react-cookie';
 export default function Car() {
 
   const brands = Brands()
@@ -18,7 +18,7 @@ export default function Car() {
   const [selectedFuel, setSelectedFuel] = useState('');
 
   const [searchValue, setSearchValue] = useState("");
-
+  const [token, setToken] = useCookies(['mytoken'])
 
 
 
@@ -97,9 +97,8 @@ export default function Car() {
         <div className=" my-4 mx-auto mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {
-
-              carsFilteredByPriceAndBrandAndFuel(cars, Price, selectedBrand, selectedFuel, searchValue).map((data, index) => {
-                console.log(data)
+              token.myId ? carsFilteredByPriceAndBrandAndFuel(cars, Price, selectedBrand, selectedFuel, searchValue).map((data, index) => {
+                console.log(fuels)
 
                 return (
                   <CarCard
@@ -111,9 +110,10 @@ export default function Car() {
                     year={2018}
                     fuel={fuels.find((b) => b.idcarburant == data.idcarburant).nom}
                     gearbox={gears.find((b) => b.id == data.idTransmission).type}
+                    id={data.idcar}
                   />
                 )
-              })
+              }) : <div className='text-center text-red-500 text-2xl'>You should connect first</div> 
             }
 
           </div>

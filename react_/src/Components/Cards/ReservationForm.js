@@ -195,7 +195,9 @@ function ReservationForm({data}) {
             .catch((response) => console.log(response))
     }
   return (
-    <form className="bg-white shadow-lg rounded-lg px-4 py-6" onSubmit={handleSubmit}>
+    <>
+      {token.myId ? 
+        <form className="bg-white shadow-lg rounded-lg px-4 py-6" onSubmit={handleSubmit}>
         <div className="bg-white shadow-lg rounded-lg px-4 py-6">
         <h1 className="text-xl font-bold mb-4">Reservate now</h1>
         <div className='text-red-500'>
@@ -320,7 +322,8 @@ function ReservationForm({data}) {
                     }
 
          </div>
-    </form>
+    </form> : <div className='text-center text-red-500 text-2xl mt-5'>You should connect first</div> }
+    </>
   );
 }
 

@@ -12,7 +12,7 @@ export default function Home() {
           <h2 className="text-5xl text-white font-bold">
             Location voiture
           </h2>
-          <p className="text-gray-500 py-4 max-w">
+          <p className="text-gray-500 py-4 max-w text-xl">
            Bienvenue sur notre site de location de voitures en ligne ! 
            Nous sommes une entreprise spécialisée dans la location de voitures 
            pour répondre à tous vos besoins en matière de transport

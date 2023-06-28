@@ -15,8 +15,10 @@ export default function Login({showPopup}) {
   const users = Users()
   const clients = Clients()
   const [modal,setIsmModal] = useState(false)
+  const [error,setError] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMes,setErrorMes] = useState('')
   const [token, setToken] = useCookies(['mytoken'])
   let navigate = useNavigate()
   useEffect(() => {   
@@ -29,24 +31,33 @@ export default function Login({showPopup}) {
 
   const loginBtn = (event) => {
     event.preventDefault();
-    console.log(clients)
+    console.log(users)
     let filterUsers = users.filter((user) => {
-         return clients.some((client) => user.iduser === client.iduser && client.liste_noire == 0)
+         return clients.some((client) => {
+            console.log(client)
+             if(client.iduser == user.iduser && client.liste_noire == 1)
+                 console.log("black list client");
+            else if(client.iduser == user.iduser && client.liste_noire == 0)
+                 return user  
+         })
     })
     console.log(filterUsers)
     if (username && password) {
       //if the user is in black list he can not enter : 
       console.log(filterUsers)
-      let user_valid = filterUsers.filter((user) => username === user.login && user.mdp === password )
+      let user_valid = filterUsers.filter((user) => username == user.login && user.mdp == password )
       if(user_valid.length>0) {
-        
         setToken('myId', user_valid[0].iduser);
         console.log('Login ...', user_valid[0].iduser);
         console.log("user is valid : ")
         window.location.reload()
-      } else console.log("login ou mot de passe est erronée ")
+      } else {
+        setError(true)
+        setErrorMes('Login or username is incorrect')
+      }
     } else {
-      console.log('Username and password are required');
+      setError(true)
+      setErrorMes('Login and username are required')
     }
   }
 
@@ -55,6 +66,7 @@ export default function Login({showPopup}) {
       <div className="flex flex-col justify-center items-center h-screen fixed inset-0 bg-gray-900 bg-opacity-75">
         <div className="sm:w-1/2 md:w-1/4 lg:w-1/5 bg-white p-10 rounded-xl shadow-lg">
           <h1 className="text-3xl font-bold mb-4 text-center">Login</h1>
+          <p className='mb-2 text-red-500'>{error ? errorMes : ''}</p>
           <form >
             <div className="mb-4">
               <label htmlFor="username" className="block font-medium mb-2">
